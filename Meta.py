@@ -1,5 +1,5 @@
 ###
-# Author: Kai Li
+# Editor: Kai Li
 # Date: 2021-06-24 19:01:48
 # LastEditors: Kai Li
 # LastEditTime: 2021-06-26 17:40:22
@@ -8,7 +8,7 @@
 
 import os
 
-# PROJ_ROOT = "/Users/liaoyuanda/Desktop/cocktail"
+# PROJ_ROOT = "/Users/*/*/cocktail"
 PROJ_ROOT = "/home/liaoyuanda/cocktail/"
 DATA_ROOT = os.path.join(PROJ_ROOT, "dataset/")
 
