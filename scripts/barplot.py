@@ -164,7 +164,7 @@ def do_many_bars(bar_vals, f1, f2, p01, p02): #size 2x6
 
 
 if __name__ == '__main__':
-    """
+    """ figure 3
     bar("../results/dumped/n=7_en=3/de=en/", "condition_single-tpdwn_6_spec.json")
     plt.savefig("../results/bar.png", dpi=300, bbox_inches='tight')
     """
@@ -172,7 +172,7 @@ if __name__ == '__main__':
     cumu_single = 'single'
     modelname = "../results/dumped_{}/n=7_en=3_resblock_3x3conv_5shortcut/de=en".format(cumu_single)
 
-    # """
+    # """ figure 4,5
     bar_vals_1x = [[],[]]
     bar_vals_2x = [[],[]]
     for ijson in range(1,7):
