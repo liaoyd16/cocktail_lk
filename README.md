@@ -30,7 +30,7 @@ Key `'reuse'` has three legitimate values:` 0`,`1` and `2`. `0` tells the progra
 
 Key `'test_before_continue'` tells the program whether test checkpoint model before training begins or not.
 
-#####Cocktail party
+##### Cocktail party
 
 Similarly, training plan associated with `AttentionNet` training is specified in section `3`. if you would like to skip this section, change key `'reuse'` to `2`. To do everything from scratch, change `'reuse'` to `0`. To train from previous checkpoint, change it to `1`.
 
