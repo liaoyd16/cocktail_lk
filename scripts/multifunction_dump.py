@@ -154,7 +154,8 @@ def do_dump(nlyr, en, de, aNet, aeNet, two_speakers, conditions):
 
 
 if __name__ == '__main__':
-    two_speakers = [1,3]
+#     two_speakers = [1,3]
+    two_speakers = Meta.data_meta['using_speakers'][:2]
     BS = 20
     BATCHES = 60 * 2 * 2 // BS # audio 27,28, each 60s, 0.5s/slice
 
