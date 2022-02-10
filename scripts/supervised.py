@@ -172,7 +172,7 @@ if __name__ == '__main__':
     # fake features
     clean_log_dir()
     if  train_meta['re_dump_embeddings'] \
-     or "speaker_0_feature.json" not in os.listdir("../pickled/features_of_speakers/"):
+     and "speaker_0_feature.json" not in os.listdir("../pickled/features_of_speakers/"):
         dump_features(Meta.model_meta['fake_features'])
 
     # phase 2: autoencode
