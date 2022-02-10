@@ -110,7 +110,31 @@ def _iterate_and_update_(model_updater, samples_storage, logger, phase_no, train
         train_meta[phase_no]['image_batch_count'] = 0
         train_meta[phase_no]['test_batch_count']  = 0
 
+def dump_features(fake):
+    if fake:
+        features_dim_256 = gen_feature_vectors(num=len(Meta.data_meta['speakers']), dim=256)
+        for sp in Meta.data_meta['speakers']:
+            json.dump(features_dim_256[sp].tolist(), \
+                      open(os.path.join(Meta.PROJ_ROOT,\
+                                        "pickled/features_of_speakers/",\
+                                        "speaker_{}_feature.json".format(sp)),\
+                      "w"))
+    else:
+        fnet = SpeechEmbedder()
+        fnet.load_state_dict(torch.load("../pickled/fnet.model"))
+        slices = []
+        for sp in Meta.data_meta['speakers']:
+            _, x = wavfile.read(Meta.audio_name_(sp, 29))
+            slices.append(x)
 
+        embeddings = fnet.embed(slices)
+
+        for sp in Meta.data_meta['speakers']:
+            json.dump(embeddings[sp].tolist(), \
+                      open(os.path.join(Meta.PROJ_ROOT,\
+                                        "pickled/features_of_speakers/",\
+                                        "speaker_{}_feature.json".format(sp)),\
+                      "w"))
 
 if __name__ == '__main__':
     NUM_LAYERS = Meta.model_meta['attend_layers'] + 1
@@ -147,6 +171,9 @@ if __name__ == '__main__':
 
     # fake features
     clean_log_dir()
+    if  train_meta['re_dump_embeddings'] \
+     or "speaker_0_feature.json" not in os.listdir("../pickled/features_of_speakers/"):
+        dump_features(Meta.model_meta['fake_features'])
 
     # phase 2: autoencode
     if train_meta['2']['optimizer']=='adam':
