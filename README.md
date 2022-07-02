@@ -2,6 +2,8 @@
 
 ---
 
+> Note: see new address at repo: cocktail_allconv
+
 #### Project description
 
 This project is code directory for our work on cocktail party problem. The project trains and tests an auto-encoder model that is able to separate one spectrogram component from a 'cocktail party' mixture (this is called cocktail party effect). Structurally, the model contains a ResNet-based autoencoder, with multi-layered attention signal projecting on it.
