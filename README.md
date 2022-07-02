@@ -2,7 +2,7 @@
 
 ---
 
-> Note: see new address at repo: cocktail_allconv
+> Note: see new address at repo: https://github.com/liaoyd16/cocktail_allconv/
 
 #### Project description
 
